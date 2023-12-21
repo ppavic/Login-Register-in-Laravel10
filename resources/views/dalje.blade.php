@@ -8,7 +8,5 @@
 </head>
 <body>
     <h1>Dobrodošli u nastavak aplikcije, {{ session('ime') }} {{ session('prezime') }}</h1>
-
-
 </body>
 </html>
