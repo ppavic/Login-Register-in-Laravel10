@@ -1,3 +1,6 @@
+## Description
+Simple laravel app demo for Login and Registration. User are stroed to database after registration with hashed password. Login screen checks user email and password aganst database and if data entered by user matches those in database, login is successfully performed. There is no authentication implementation for route guarding.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +67,29 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Testing
+Unzip if downloaded to desired directory.
+
+Based on .env.example create .env and set your database connection parameters
+
+## Terminal commands
+
+Commands should be uned from project folder.
+
+Install dependencies:
+```
+composer install
+```
+Create key:
+```
+php artisan key:generate
+```
+Migrate database:
+```
+php artisan migrate
+```
+Start localhost server (usualy: localhost:8000)
+```
+php artisan serve
+```
