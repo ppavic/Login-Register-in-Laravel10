@@ -1,56 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <title>Registracija</title>
 </head>
+
 <body>
-    
-    <h1>Registracija</h1>
 
-    @if (session('success'))
-        <p>{{ session('success') }}</p>
-    @endif
+    <div class="container-sm ">
 
-    @if (session('error'))
-       <p>{{ session('error') }}</p> 
-    @endif
+        <div class="row">
 
-    
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <p>{{ $error }}</p>
-        @endforeach
-    @endif
+            <div class="d-flex justify-content-center">
+                <h1>Registracija</h1>
+            </div>
 
-    <form action="{{ route('registracija.preformRegistration') }}" method="POST">
-    
-        @csrf
-    
-    <label for="ime">Ime:</label>
-    <input type="text" name="ime" id="ime" required>
-    
-    <label for="prezime">Prezime:</label>
-    <input type="text" name="prezime" id="prezime" required>
-    
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    
-    <label for="pon_email">Ponovljeni email:</label>
-    <input type="pon_email" id="pon_email" name="pon_email" required>
-    
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-    
-    <label for="pon_password">Ponovljenii password:</label>
-    <input type="password" name="pon_password" id="pon_password">
-    
-    <button type="submit">Registriraj se</button>
-    <a href="/">Povratak na početak</a>
-    </form>
-    
+        </div>
+
+        <div class="row">
+
+            <div class="d-flex justify-content-center">
+                @if (session('success'))
+                    <p class="font-monospace">{{ session('success') }}</p>
+                @endif
+
+                @if (session('error'))
+                    <p class="font-monospace">{{ session('error') }}</p>
+                @endif
+
+
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p class="font-monospace">{{ $error }}</p>
+                    @endforeach
+                @endif
+            </div>
+
+        </div>
+
+        <div class="row p-3 d-flex justify-content-center">
+            <div class="card my-3 p-3" style="width: 18rem;">
+
+                <form action="{{ route('registracija.preformRegistration') }}" method="POST">
+
+                    @csrf
+                    
+                    <div class="mb-2 col-auto">
+
+                        <div class="my-1 col-auto">
+                            <label for="ime">Ime:</label>
+                        </div>
+
+                        <div class="my-1 col-auto">
+                            <input type="text" name="ime" id="ime" required>
+                        </div>
+
+                    </div>
+
+                    <div class="col-auto">
+
+                        <div class="my-1 col-auto">
+                            <label for="prezime">Prezime:</label>
+
+                        </div>
+
+                        <div class="my-1 col-auto">
+                            <input type="text" name="prezime" id="prezime" required>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="col-auto">
+
+                        <div class="my-1 col-auto">
+                            <label for="email">Email:</label>
+                        </div>
+
+                        <div class="my-1 col-auto">
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                    </div>
+
+                    <div class="col-auto">
+
+                        <div class="my-1 col-auto">
+                            <label for="pon_email">Ponovi email:</label>
+                        </div>
+
+                        <div class="my-1 col-auto">
+                            <input type="email" id="pon_email" name="pon_email" required>
+                            <hr>
+                        </div>
+
+                    </div>
+
+                    <div class="col-auto">
+
+                        <div class="my-1 col-auto">
+                            <label for="password">Password:</label>
+                        </div>
+
+                        <div class="my-1 col-auto">
+                            <input type="password" name="password" id="password">
+                        </div>
+
+                    </div>
+
+                    <div class="col-auto">
+
+                        <div class="my-1 col-auto">
+                            <label for="pon_password">Ponovi password:</label>
+                        </div>
+
+                        <div class="my-1 col-auto">
+                            <input type="password" name="pon_password" id="pon_password">
+                            <hr>
+                        </div>
+
+                    </div>
+
+                    <div class="col-auto py-1">
+
+                        <div class="m-1 col-auto">
+                            <button type="submit" class="btn btn-primary">Registriraj se</button>
+                        </div>
+
+                        <div class="m-1 col-auto">
+                            <a href="/" class="btn btn-secondary">Odustani</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 </html>
