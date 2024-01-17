@@ -21,6 +21,18 @@
 
         </div>
 
+        <!-- Modal container -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Modal text goes here...</p>
+                <button>The new button</button>
+            </div>
+
+        </div>
+
         <div class="row">
 
             <div class="d-flex justify-content-center">
@@ -48,7 +60,7 @@
                 <form action="{{ route('registracija.preformRegistration') }}" method="POST">
 
                     @csrf
-                    
+
                     <div class="mb-2 col-auto">
 
                         <div class="my-1 col-auto">
@@ -127,7 +139,8 @@
                     <div class="col-auto py-1">
 
                         <div class="m-1 col-auto">
-                            <button type="submit" class="btn btn-primary">Registriraj se</button>
+                            <button type="submit" id="modalBtn" class="btn btn-primary">Registriraj
+                                se</button>
                         </div>
 
                         <div class="m-1 col-auto">
@@ -140,6 +153,37 @@
         </div>
     </div>
 
+    @push('scripts')
+
+    <script>
+        // Get button that opens modal 
+        const btn = document.getElementById('modalBtn');
+
+        // When user clicks button, open modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+
+            // Disable background scroll
+            document.body.style.overflow = "hidden";
+        }
+
+        // When user clicks x button, close modal
+        const close = document.getElementsByClassName("close")[0];
+        close.onclick = function() {
+            modal.style.display = "none";
+
+            // Enable scroll again
+            document.body.style.overflow = "auto";
+        }
+    </script>
+
+    @endpush
+
+    @stack('scripts')
+    
+    <script src="{{ mix('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    
 </body>
 
 </html>
